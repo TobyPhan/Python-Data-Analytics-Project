@@ -42,3 +42,42 @@ plt.show()
 - SQL is the most requested skill for Data Analysts and Data Scientists, with it in over 50% of the job postings for both roles. For Data Engineers though, Python is the most sought-after skill, appearing in 68% of job postings.
 - Data Engineers require more specialized technical skills (AWS, Azure, Spark) compared to Data Analysts and Data Scientists who are expected to be proficient in more general data mangement and analysis tools (Excel, Tableau).
 
+## 2. How are in-demand skills trending for Data Analysts?
+
+### Visualize Data
+
+```python
+from matplotlib.ticker import PercentFormatter
+df_plot = df_DA_US_percent.iloc[:, :5]
+
+sns.lineplot(data = df_plot, dashes = False, palette = 'tab10', legend= 'full')
+sns.set_theme(style = 'ticks')
+sns.despine()
+
+plt.title('Trending Top Skills for Data Analysts in the US')
+plt.ylabel('Likelihood of Job Postings')
+plt.xlabel('2026')
+plt.legend().remove()
+
+ax= plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals = 0))
+
+for i in range(5):
+    plt.text(11.2,df_plot.iloc[-1,i],df_plot.columns[i])
+plt.show()
+```
+### Results
+
+![Trending Top Skills for Data Analysts in the US in 2025](Project/Images/Skill_Trend_DA.png)
+
+*Bar graph visualizing the trending top skills for data analysts in the US in 2025.*
+
+### Insights
+- SQL remains the most consistenly demanded skill throughout the year, although it shows a gradual decrease in demand throughout the year.
+- Excel experienced a similar trend with SQL, showing a decline in demand and sharper decline starting in August.
+- Tableau and Python show relatively stable demand and show the same trend against each other with some fluctuations. In August, Python slightly edges out Tableau during that month, but Tableau bounces back.
+- SAS shows a stable trend throughout the year at relatively 20%.
+
+All these technologies are safe for the time being to learn.
+
+
